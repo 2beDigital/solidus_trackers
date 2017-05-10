@@ -13,6 +13,10 @@ module SolidusTrackers
         inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/solidus_trackers\n", before: /\*\//, verbose: true
       end
 
+      def add_helper
+        inject_into_file 'app/helpers/application_helper.rb', "include Spree::TrackersHelper\n", :after => "module ApplicationHelper\n"
+      end
+
       def add_migrations
         run 'bundle exec rake railties:install:migrations FROM=solidus_trackers'
       end
