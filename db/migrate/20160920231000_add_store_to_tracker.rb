@@ -1,4 +1,4 @@
-class AddStoreToTracker < ActiveRecord::Migration
+class AddStoreToTracker < ActiveRecord::Migration[5.0]
   def self.up
     if data_source_exists?('spree_trackers')
       change_table :spree_trackers do |t|
